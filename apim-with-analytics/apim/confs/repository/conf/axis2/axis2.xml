@@ -176,7 +176,7 @@
                           class="org.apache.axis2.json.JSONBadgerfishMessageFormatter"/>
         <messageFormatter contentType="text/javascript"
                           class="org.apache.axis2.json.JSONMessageFormatter"/>
-        <messageFormatter contentType="application/octet-stream"
+        <messageFormatter contentType="application/octet-stream" 
                           class="org.wso2.carbon.relay.ExpandingMessageFormatter"/>
 
         <!-- See https://wso2.org/jira/browse/ESBJAVA-1725 before enabling bellow line -->
@@ -242,7 +242,7 @@
                         class="org.apache.axis2.json.JSONBadgerfishOMBuilder"/>
         <messageBuilder contentType="text/javascript"
                         class="org.apache.axis2.json.JSONBuilder"/>
-        <messageBuilder contentType="application/octet-stream"
+        <messageBuilder contentType="application/octet-stream" 
                         class="org.wso2.carbon.relay.BinaryRelayBuilder"/>
 
         <!--messageBuilder contentType="text/javascript"
@@ -411,12 +411,14 @@
         	<parameter name="transport.jms.ConnectionFactoryJNDIName" locked="false">TopicConnectionFactory</parameter>
 		    <parameter name="transport.jms.ConnectionFactoryType" locked="false">topic</parameter>
         </parameter>
+
         <parameter name="myQueueConnectionFactory" locked="false">
         	<parameter name="java.naming.factory.initial" locked="false">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
         	<parameter name="java.naming.provider.url" locked="false">tcp://localhost:61616</parameter>
         	<parameter name="transport.jms.ConnectionFactoryJNDIName" locked="false">QueueConnectionFactory</parameter>
 		    <parameter name="transport.jms.ConnectionFactoryType" locked="false">queue</parameter>
         </parameter>
+
         <parameter name="default" locked="false">
         	<parameter name="java.naming.factory.initial" locked="false">org.apache.activemq.jndi.ActiveMQInitialContextFactory</parameter>
         	<parameter name="java.naming.provider.url" locked="false">tcp://localhost:61616</parameter>
@@ -433,12 +435,14 @@
             <parameter name="transport.jms.ConnectionFactoryJNDIName" locked="false">TopicConnectionFactory</parameter>
             <parameter name="transport.jms.ConnectionFactoryType" locked="false">topic</parameter>
         </parameter>
+
         <parameter name="myQueueConnectionFactory" locked="false">
             <parameter name="java.naming.factory.initial" locked="false">org.apache.qpid.jndi.PropertiesFileInitialContextFactory</parameter>
             <parameter name="java.naming.provider.url" locked="false">repository/conf/jndi.properties</parameter>
             <parameter name="transport.jms.ConnectionFactoryJNDIName" locked="false">QueueConnectionFactory</parameter>
             <parameter name="transport.jms.ConnectionFactoryType" locked="false">queue</parameter>
         </parameter>
+
         <parameter name="default" locked="false">
             <parameter name="java.naming.factory.initial" locked="false">org.apache.qpid.jndi.PropertiesFileInitialContextFactory</parameter>
             <parameter name="java.naming.provider.url" locked="false">repository/conf/jndi.properties</parameter>
@@ -552,7 +556,7 @@
             <filePath>repository/resources/security/sslprofiles.xml</filePath>
             <fileReadInterval>600000</fileReadInterval>
         </parameter>
-        <parameter name="HostnameVerifier">AllowAll</parameter>
+        <!--<parameter name="HostnameVerifier">DefaultAndLocalhost</parameter>-->
             <!--supports Strict|AllowAll|DefaultAndLocalhost or the default if none specified -->
     </transportSender>
 
@@ -663,6 +667,7 @@
         <!--
            The membership scheme used in this setup. The only values supported at the moment are
            "multicast" and "wka"
+
            1. multicast - membership is automatically discovered using multicasting
            2. wka - Well-Known Address based multicasting. Membership is discovered with the help
                     of one or more nodes running at a Well-Known Address. New members joining a
@@ -785,6 +790,7 @@
            The MsgInObservation phase is used to observe messages as soon as they are
            received. In this phase, we could do some things such as SOAP message tracing & keeping
            track of the time at which a particular message was received
+
            NOTE: This should be the very first phase in this flow
         -->
 	<phase name="MsgInObservation">
@@ -878,6 +884,7 @@
            The MsgOutObservation phase is used tju,o observe messages just before the
            responses are sent out. In this phase, we could do some things such as SOAP message
            tracing & keeping track of the time at which a particular response was sent.
+
            NOTE: This should be the very last phase in this flow
         -->
         <phase name="MsgOutObservation"/>
@@ -888,6 +895,7 @@
            The MsgInObservation phase is used to observe messages as soon as they are
            received. In this phase, we could do some things such as SOAP message tracing & keeping
            track of the time at which a particular message was received
+
            NOTE: This should be the very first phase in this flow
         -->
         <phase name="MsgInObservation"/>
@@ -951,6 +959,7 @@
            The MsgOutObservation phase is used to observe messages just before the
            responses are sent out. In this phase, we could do some things such as SOAP message
            tracing & keeping track of the time at which a particular response was sent.
+
            NOTE: This should be the very last phase in this flow
         -->
         <phase name="MsgOutObservation"/>
